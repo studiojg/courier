@@ -13,6 +13,7 @@ use Sylapi\Courier\Contracts\CourierMakeSender;
 use Sylapi\Courier\Contracts\CourierMakeShipment;
 use Sylapi\Courier\Contracts\CourierPostShipment;
 use Sylapi\Courier\Contracts\Label as LabelContract;
+use Sylapi\Courier\Contracts\LabelFile as LabelFileContract;
 use Sylapi\Courier\Contracts\Parcel;
 use Sylapi\Courier\Contracts\Receiver;
 use Sylapi\Courier\Contracts\Response as ResponseContract;
@@ -67,6 +68,11 @@ class Courier implements Contracts\Courier
     public function getLabel(string $shipmentId): LabelContract
     {
         return $this->getLabels->getLabel($shipmentId);
+    }
+
+    public function getLabelFile(string $shipmentId, string $format = 'pdf'): LabelFileContract
+    {
+        return $this->getLabels->getLabelFile($shipmentId, $format);
     }
 
     public function getStatus(string $shipmentId): StatusContract
