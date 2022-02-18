@@ -70,12 +70,12 @@ abstract class Shipment implements ShipmentContract
         return $this;
     }
 
-    public function getParcel(): ?Parcel
+    public function getParcel(): array|Parcel|null
     {
         return $this->parcel;
     }
 
-    public function setParcel(Parcel $parcel): ShipmentContract
+    public function setParcel(Parcel|array $parcel): ShipmentContract
     {
         $this->parcel = $parcel;
         $this->parcels = [$parcel];
@@ -110,3 +110,4 @@ abstract class Shipment implements ShipmentContract
         return (is_array($this->parcels)) ? count($this->parcels) : 0;
     }
 }
+

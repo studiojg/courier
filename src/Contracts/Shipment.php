@@ -22,9 +22,9 @@ interface Shipment extends Validatable
 
     public function setReceiver(Receiver $receiver): self;
 
-    public function getParcel(): ?Parcel;
+    public function getParcel(): array|Parcel|null;
 
-    public function setParcel(Parcel $parcel): self;
+    public function setParcel(array|Parcel $parcel): self;
 
     public function getContent(): string;
 
@@ -34,3 +34,4 @@ interface Shipment extends Validatable
 
     public function getWeight(): float;
 }
+
